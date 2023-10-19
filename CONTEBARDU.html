@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Letter to Number Translator</title>
+  <style>
+    #container {
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <h1>Letter to Number Translator</h1>
+  <input type="text" id="inputText" placeholder="Enter letters" />
+  <button id="translateButton">Translate</button>
+  <p>Translated: <span id="outputText"></span></p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const map = {
+      'C': '1',
+      'O': '2',
+      'N': '3',
+      'T': '4',
+      'E': '5',
+      'B': '6',
+      'A': '7',
+      'R': '8',
+      'D': '9',
+      'U': '0'
+    };
+
+    document.getElementById("translateButton").addEventListener("click", function() {
+      const inputText = document.getElementById("inputText").value.toUpperCase();
+      let outputText = "";
+      for (let i = 0; i < inputText.length; i++) {
+        const char = inputText[i];
+        outputText += map[char] ? map[char] : char;
+      }
+      document.getElementById("outputText").innerText = outputText;
+    });
+  });
+</script>
+
+</body>
+</html>
